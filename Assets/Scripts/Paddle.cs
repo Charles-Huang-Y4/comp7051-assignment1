@@ -14,6 +14,7 @@ public class Paddle : MonoBehaviour
     private KeyCode down;
     private float minRand = 0.6f;
     private float maxRand = 1f;
+    private Vector3 startPos;
 
     private void Start() {
         AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
@@ -25,10 +26,17 @@ public class Paddle : MonoBehaviour
             up = KeyCode.W;
             down = KeyCode.S;
         }
+        startPos = transform.position;
+    }
+
+    public void Reset() {
+        transform.position = startPos;
+        rigidbody.velocity = Vector3.zero;
     }
 
     void Update() {     
-        if (GameManager.Instance.IsAI() && !isPlayerOne) {
+        // Paddle AI
+        if (GameManager.Instance.IsAI() && !isPlayerOne && ball.GetVelocity() != Vector3.zero) {
             if (ball.transform.position.x > transform.position.x) {
                 rigidbody.velocity = Vector3.right * AISpeed;
             } else {
@@ -37,6 +45,7 @@ public class Paddle : MonoBehaviour
             return;
         }
 
+        // Not Paddle AI
         if (Input.GetKeyDown(up)) {
             rigidbody.velocity = Vector3.left * GameManager.Instance.speed;
         }

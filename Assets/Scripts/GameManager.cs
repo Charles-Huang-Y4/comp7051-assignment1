@@ -55,15 +55,26 @@ public class GameManager : MonoBehaviour {
         originalLightColor = lightComponent.color;
     }
 
+    private void ResetGame() {
+        ResetScores();
+        paddle1.GetComponent<Paddle>().Reset();
+        paddle2.GetComponent<Paddle>().Reset();
+        ball.Reset();
+    }
+
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Application.Quit();
         }
 
+        if (Input.GetKeyDown(KeyCode.R)) {
+            ResetGame();
+        }
+
         if (Input.GetKeyDown(KeyCode.A)) {
             isAI = !isAI;
             PlayerTwoText(_playerTwoScore);
-            ball.Reset();
+            ResetGame();
         }
 
         if (Input.GetKeyDown(KeyCode.D)) {

@@ -4,16 +4,17 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody rigidbody;
     private Vector3 startPos;
+    private bool isStart;
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         startPos = transform.position;
-        Launch();
+        isStart = true;
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
-            Reset();
+        if (Input.GetKeyDown(KeyCode.F)) {
+            Launch();
         }
     }
 
@@ -51,11 +52,14 @@ public class Ball : MonoBehaviour
 
     public void Reset() {
         transform.position = startPos;
-        GameManager.Instance.ResetScores();
-        Launch();
+        rigidbody.velocity = Vector3.zero;
     }
 
     public Vector3 GetPosition() {
         return transform.position;
+    }
+
+    public Vector3 GetVelocity() {
+        return rigidbody.velocity;
     }
 }
