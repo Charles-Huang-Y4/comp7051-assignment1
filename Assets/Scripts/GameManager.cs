@@ -76,9 +76,9 @@ public class GameManager : MonoBehaviour {
             PlayerTwoText(_playerTwoScore);
             ResetGame();
             if (isAI) {
-                paddle2.GetComponent<Paddle>().OnDisable();
+                paddle2.GetComponent<PlayerController>().OnDisable();
             } else {
-                paddle2.GetComponent<Paddle>().OnEnable();
+                paddle2.GetComponent<PlayerController>().OnEnable();
             }
         }
 
