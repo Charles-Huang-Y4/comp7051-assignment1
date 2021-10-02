@@ -20,9 +20,9 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) {
         if(collision.collider.tag == "PlayerOneWall") {
-            GameManager.Instance.IncrementPlayerOneScore();
-        } else if (collision.collider.tag == "PlayerTwoWall") {
             GameManager.Instance.IncrementPlayerTwoScore();
+        } else if (collision.collider.tag == "PlayerTwoWall") {
+            GameManager.Instance.IncrementPlayerOneScore();
         }
 
         if (collision.collider.tag == "PlayerOneWall" || collision.collider.tag == "PlayerTwoWall") {
