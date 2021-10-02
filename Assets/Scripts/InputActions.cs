@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/ControllerInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @ControllerInput : IInputActionCollection, IDisposable
+public class @InputActions : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @ControllerInput()
+    public @InputActions()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""ControllerInput"",
+    ""name"": ""InputActions"",
     ""maps"": [
         {
             ""name"": ""Player1"",
-            ""id"": ""634344ee-7dc0-407a-bad2-3e5cb8330a94"",
+            ""id"": ""2975447d-8b78-4d17-9756-1d7853fa4014"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
                     ""type"": ""Button"",
-                    ""id"": ""c0894709-fd9f-4cbf-8d52-7382383bfe22"",
+                    ""id"": ""41acc9d1-7c35-4a9b-b8af-42366d6b736c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -29,8 +29,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""Buttons"",
-                    ""id"": ""d3a1df46-adf2-4b57-ae8e-2c76f9f19206"",
+                    ""name"": ""Controller"",
+                    ""id"": ""c8360542-91e5-4235-b7a0-f81fb81bfcf2"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -41,7 +41,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""36740acc-0da7-4ce2-8b29-87716042fb2f"",
+                    ""id"": ""4fa1477c-6947-4afa-a692-a0ae0fbc8237"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -52,8 +52,41 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""ed307aaf-b0bc-4a82-8f82-4384ccf21003"",
+                    ""id"": ""67d3167e-e0a6-43d2-a45a-83e03cfa6486"",
                     ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ArrowKeys"",
+                    ""id"": ""34c2e38b-b065-48d2-8cb9-29e1b5f55130"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c3d86e85-6107-41fe-ace4-40a74f222bc4"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""474a6fce-cc64-4987-8376-8fd0e7fb13b8"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -65,12 +98,12 @@ public class @ControllerInput : IInputActionCollection, IDisposable
         },
         {
             ""name"": ""Player2"",
-            ""id"": ""c1e8f3dc-577a-45c8-a589-b321cafaff76"",
+            ""id"": ""e82d928d-af62-400b-a607-8b05d2bd8773"",
             ""actions"": [
                 {
                     ""name"": ""Movement"",
                     ""type"": ""Button"",
-                    ""id"": ""5e9cd4e4-6b0f-4764-80e2-d09bb65009de"",
+                    ""id"": ""ce7c25ca-728b-4213-8f9c-0abb666970b1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -78,8 +111,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""DPad"",
-                    ""id"": ""2360698f-c0a9-4142-b506-e7066fa2bd77"",
+                    ""name"": ""Controller"",
+                    ""id"": ""f8d259d3-0ac6-44cd-80da-dd066059dbfd"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -90,7 +123,7 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""25c0d00b-2e18-4a55-8151-041f373c047d"",
+                    ""id"": ""e32b13bc-0da7-4fb3-8ee5-cb0f0b192775"",
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -101,8 +134,41 @@ public class @ControllerInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""de387648-09ff-478f-a564-d0f75adceca1"",
+                    ""id"": ""ebf4b91f-9aaf-447b-bf92-c79f2c2e51f6"",
                     ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""488b7f36-3a90-4764-8baf-cf1a8808feb8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d57f67ac-f8cd-45fb-99a9-a05ad822b5eb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c29d0190-d493-49ca-ad5f-db93b2781586"",
+                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -173,8 +239,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Movement;
     public struct Player1Actions
     {
-        private @ControllerInput m_Wrapper;
-        public Player1Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        private @InputActions m_Wrapper;
+        public Player1Actions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player1_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
@@ -206,8 +272,8 @@ public class @ControllerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Movement;
     public struct Player2Actions
     {
-        private @ControllerInput m_Wrapper;
-        public Player2Actions(@ControllerInput wrapper) { m_Wrapper = wrapper; }
+        private @InputActions m_Wrapper;
+        public Player2Actions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player2_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }

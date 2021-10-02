@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 877667041406a1f4da227777d75cdc2c, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 96bde57561abb15419113c74699bc201, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -304,12 +304,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c0894709-fd9f-4cbf-8d52-7382383bfe22
-    m_ActionName: Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID/buttonSouth]
+    m_ActionId: 41acc9d1-7c35-4a9b-b8af-42366d6b736c
+    m_ActionName: Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/Keyboard/upArrow,/Keyboard/downArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 5e9cd4e4-6b0f-4764-80e2-d09bb65009de
-    m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down]
+    m_ActionId: ce7c25ca-728b-4213-8f9c-0abb666970b1
+    m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/Keyboard/w,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 877667041406a1f4da227777d75cdc2c, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 96bde57561abb15419113c74699bc201, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -616,8 +616,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: c0894709-fd9f-4cbf-8d52-7382383bfe22
-    m_ActionName: Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID/buttonSouth]
+    m_ActionId: 41acc9d1-7c35-4a9b-b8af-42366d6b736c
+    m_ActionName: Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/Keyboard/upArrow,/Keyboard/downArrow]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 329544278}
@@ -632,8 +632,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 5e9cd4e4-6b0f-4764-80e2-d09bb65009de
-    m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down]
+    m_ActionId: ce7c25ca-728b-4213-8f9c-0abb666970b1
+    m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/Keyboard/w,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player2

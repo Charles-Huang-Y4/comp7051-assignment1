@@ -3,22 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private GameObject _player;
-    private ControllerInput _controllerInput;
+    private InputActions _input;
     private InputAction _movement;
     private Rigidbody _rigidbody;
     private Vector2 _currentMove;
 
     private void Awake() {
-        _controllerInput = new ControllerInput();
+        _input = new InputActions();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void OnEnable() {
         // Get reference to player's controller movement and enable the respective actions
         if (_player.name.Equals("Player1")) {
-            _movement = _controllerInput.Player1.Movement;
+            _movement = _input.Player1.Movement;
         } else if (_player.name.Equals("Player2")) {
-            _movement = _controllerInput.Player2.Movement;
+            _movement = _input.Player2.Movement;
         }
 
         _movement.Enable();

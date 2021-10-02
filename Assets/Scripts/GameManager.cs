@@ -154,8 +154,8 @@ public class GameManager : MonoBehaviour {
             if (Random.Range(0, chance) == 0) {
                 obj.GetComponent<Renderer>().material.color = GetRandomColor();
             }
-            obj.transform.Rotate(GetRandomVector3(), rotationSpeed * Time.deltaTime);
-            obj.transform.localScale = tempPaddleScale;
+/*            obj.transform.Rotate(GetRandomVector3(), rotationSpeed * Time.deltaTime);
+            obj.transform.localScale = tempPaddleScale;*/
         }
 
         // For some reason GetRandomColor() doesn't work but this does...
