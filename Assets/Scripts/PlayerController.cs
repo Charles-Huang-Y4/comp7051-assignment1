@@ -35,13 +35,15 @@ public class PlayerController : MonoBehaviour {
         _currentMove = context.ReadValue<Vector2>();
     }
 
-    private void Update() {
-        Vector3 moveVelocity = GameManager.Instance.speed * (
-            _currentMove.x * Vector3.right +
-            _currentMove.y * Vector3.forward
-            );
-        Vector3 moveThisFrame = Time.deltaTime * moveVelocity;
+    private void FixedUpdate() {
+        Vector3 pos = new Vector3(_currentMove.x, 0, _currentMove.y);
+        _rigidbody.velocity = pos * GameManager.Instance.speed;
+    }
 
-        transform.position += moveThisFrame;
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.collider.tag == "Wall") {
+            _rigidbody.velocity = Vector3.zero;
+        }
     }
 }
