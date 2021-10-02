@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
     private TextMeshProUGUI playerOneGUI;
     private TextMeshProUGUI playerTwoGUI;
     private Light lightComponent;
-    private bool isAI;
+    public static bool isAI = false;
     private bool canDisco;
     private List<GameObject> wallList;
     private List<GameObject> paddleList;
@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour {
         playerOneGUI = GameObject.FindGameObjectWithTag("PlayerOneScore").GetComponent<TextMeshProUGUI>();
         playerTwoGUI = GameObject.FindGameObjectWithTag("PlayerTwoScore").GetComponent<TextMeshProUGUI>();
         lightComponent = GameObject.FindGameObjectWithTag("Light").GetComponent<Light>();
-        isAI = false;
 
         wallList = new List<GameObject>();
         paddleList = new List<GameObject>();
