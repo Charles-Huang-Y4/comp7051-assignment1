@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/PlayerKeyboardInput.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/InputActions.inputactions'
 
 using System;
 using System.Collections;
@@ -6,30 +6,22 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
+public class @InputActions : IInputActionCollection, IDisposable
 {
     public InputActionAsset asset { get; }
-    public @PlayerKeyboardInput()
+    public @InputActions()
     {
         asset = InputActionAsset.FromJson(@"{
-    ""name"": ""PlayerKeyboardInput"",
+    ""name"": ""InputActions"",
     ""maps"": [
         {
             ""name"": ""Player1"",
-            ""id"": ""5e9913b8-ada4-465c-8e51-10a9b7aab83f"",
+            ""id"": ""2975447d-8b78-4d17-9756-1d7853fa4014"",
             ""actions"": [
                 {
-                    ""name"": ""UpDownArrows"",
+                    ""name"": ""Movement"",
                     ""type"": ""Button"",
-                    ""id"": ""6db4dc19-e6c0-4467-a225-e2dd878a3fc8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""ArrowKeys"",
-                    ""type"": ""Button"",
-                    ""id"": ""ff616406-0a17-47d2-861c-0ae63663449a"",
+                    ""id"": ""41acc9d1-7c35-4a9b-b8af-42366d6b736c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -37,68 +29,68 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""2af67c6d-894a-45d3-b2be-cd878366bc5a"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDownArrows"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""031010a2-ceac-4bdd-a056-cbe77f7eeed0"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDownArrows"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""7e051729-93d7-4791-8048-8068b714109a"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""UpDownArrows"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""6d94eca6-90d5-47fb-bf59-9a80f59fd383"",
+                    ""name"": ""Controller"",
+                    ""id"": ""c8360542-91e5-4235-b7a0-f81fb81bfcf2"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ArrowKeys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""42ae7d94-4456-4db7-926d-18d915c3e4a4"",
-                    ""path"": ""<Keyboard>/upArrow"",
+                    ""id"": ""4fa1477c-6947-4afa-a692-a0ae0fbc8237"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ArrowKeys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""f6e3f6fd-2ca2-4e80-b8ef-842013f1d151"",
+                    ""id"": ""67d3167e-e0a6-43d2-a45a-83e03cfa6486"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""ArrowKeys"",
+                    ""id"": ""34c2e38b-b065-48d2-8cb9-29e1b5f55130"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c3d86e85-6107-41fe-ace4-40a74f222bc4"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""474a6fce-cc64-4987-8376-8fd0e7fb13b8"",
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ArrowKeys"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -106,20 +98,12 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
         },
         {
             ""name"": ""Player2"",
-            ""id"": ""9fb97f95-74f5-4132-bf23-92ff63e24b15"",
+            ""id"": ""e82d928d-af62-400b-a607-8b05d2bd8773"",
             ""actions"": [
                 {
-                    ""name"": ""WSKeys"",
+                    ""name"": ""Movement"",
                     ""type"": ""Button"",
-                    ""id"": ""374d8fff-b8bf-455f-a2ad-0701c8ada488"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""WASD"",
-                    ""type"": ""Button"",
-                    ""id"": ""aa27c89c-2f61-497f-8333-8de890b7da9c"",
+                    ""id"": ""ce7c25ca-728b-4213-8f9c-0abb666970b1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -127,68 +111,68 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""1D Axis"",
-                    ""id"": ""1d6efae3-4a70-4921-a415-ed01df423031"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WSKeys"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""11e63799-0e04-4a58-a0ea-eddecbb2e12e"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WSKeys"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""897f86ce-2f8a-48a8-806e-c42c333265d8"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""WSKeys"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""a189049e-2a15-40e7-8df0-6721ff8a25c5"",
+                    ""name"": ""Controller"",
+                    ""id"": ""f8d259d3-0ac6-44cd-80da-dd066059dbfd"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""1b98b01e-8374-495d-82ff-d28cb699cfa8"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""e32b13bc-0da7-4fb3-8ee5-cb0f0b192775"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""2b3dd9ca-f1fc-4db3-9ac6-67af4cbf029b"",
+                    ""id"": ""ebf4b91f-9aaf-447b-bf92-c79f2c2e51f6"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""488b7f36-3a90-4764-8baf-cf1a8808feb8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d57f67ac-f8cd-45fb-99a9-a05ad822b5eb"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c29d0190-d493-49ca-ad5f-db93b2781586"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""WASD"",
+                    ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -199,12 +183,10 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
 }");
         // Player1
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
-        m_Player1_UpDownArrows = m_Player1.FindAction("UpDownArrows", throwIfNotFound: true);
-        m_Player1_ArrowKeys = m_Player1.FindAction("ArrowKeys", throwIfNotFound: true);
+        m_Player1_Movement = m_Player1.FindAction("Movement", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
-        m_Player2_WSKeys = m_Player2.FindAction("WSKeys", throwIfNotFound: true);
-        m_Player2_WASD = m_Player2.FindAction("WASD", throwIfNotFound: true);
+        m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -254,14 +236,12 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
     // Player1
     private readonly InputActionMap m_Player1;
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
-    private readonly InputAction m_Player1_UpDownArrows;
-    private readonly InputAction m_Player1_ArrowKeys;
+    private readonly InputAction m_Player1_Movement;
     public struct Player1Actions
     {
-        private @PlayerKeyboardInput m_Wrapper;
-        public Player1Actions(@PlayerKeyboardInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @UpDownArrows => m_Wrapper.m_Player1_UpDownArrows;
-        public InputAction @ArrowKeys => m_Wrapper.m_Player1_ArrowKeys;
+        private @InputActions m_Wrapper;
+        public Player1Actions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Player1_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -271,22 +251,16 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_Player1ActionsCallbackInterface != null)
             {
-                @UpDownArrows.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDownArrows;
-                @UpDownArrows.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDownArrows;
-                @UpDownArrows.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnUpDownArrows;
-                @ArrowKeys.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArrowKeys;
-                @ArrowKeys.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArrowKeys;
-                @ArrowKeys.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnArrowKeys;
+                @Movement.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnMovement;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @UpDownArrows.started += instance.OnUpDownArrows;
-                @UpDownArrows.performed += instance.OnUpDownArrows;
-                @UpDownArrows.canceled += instance.OnUpDownArrows;
-                @ArrowKeys.started += instance.OnArrowKeys;
-                @ArrowKeys.performed += instance.OnArrowKeys;
-                @ArrowKeys.canceled += instance.OnArrowKeys;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
             }
         }
     }
@@ -295,14 +269,12 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
     // Player2
     private readonly InputActionMap m_Player2;
     private IPlayer2Actions m_Player2ActionsCallbackInterface;
-    private readonly InputAction m_Player2_WSKeys;
-    private readonly InputAction m_Player2_WASD;
+    private readonly InputAction m_Player2_Movement;
     public struct Player2Actions
     {
-        private @PlayerKeyboardInput m_Wrapper;
-        public Player2Actions(@PlayerKeyboardInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @WSKeys => m_Wrapper.m_Player2_WSKeys;
-        public InputAction @WASD => m_Wrapper.m_Player2_WASD;
+        private @InputActions m_Wrapper;
+        public Player2Actions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Player2_Movement;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -312,34 +284,26 @@ public class @PlayerKeyboardInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_Player2ActionsCallbackInterface != null)
             {
-                @WSKeys.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWSKeys;
-                @WSKeys.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWSKeys;
-                @WSKeys.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWSKeys;
-                @WASD.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASD;
-                @WASD.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASD;
-                @WASD.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnWASD;
+                @Movement.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMovement;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @WSKeys.started += instance.OnWSKeys;
-                @WSKeys.performed += instance.OnWSKeys;
-                @WSKeys.canceled += instance.OnWSKeys;
-                @WASD.started += instance.OnWASD;
-                @WASD.performed += instance.OnWASD;
-                @WASD.canceled += instance.OnWASD;
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
             }
         }
     }
     public Player2Actions @Player2 => new Player2Actions(this);
     public interface IPlayer1Actions
     {
-        void OnUpDownArrows(InputAction.CallbackContext context);
-        void OnArrowKeys(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
-        void OnWSKeys(InputAction.CallbackContext context);
-        void OnWASD(InputAction.CallbackContext context);
+        void OnMovement(InputAction.CallbackContext context);
     }
 }
