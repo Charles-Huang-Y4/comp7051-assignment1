@@ -49,7 +49,7 @@ public class Paddle : MonoBehaviour
             return;
         }
 
-        rigidbody.velocity = new Vector3(movement.ReadValue<Vector2>().x, movement.ReadValue<Vector2>().y, 0) * GameManager.Instance.speed; ;
+        rigidbody.velocity = new Vector3(movement.ReadValue<Vector2>().x, movement.ReadValue<Vector2>().y, 0) * GameManager.Instance.speed;
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -63,11 +63,11 @@ public class Paddle : MonoBehaviour
         }
     }
 
-    private void OnEnable() {
+    public void OnEnable() {
         input.Enable();
     }
 
-    private void OnDisable() {
+    public void OnDisable() {
         input.Disable();
     }
 }
