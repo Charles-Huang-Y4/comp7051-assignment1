@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 69536514}
   - component: {fileID: 69536513}
   - component: {fileID: 69536515}
+  - component: {fileID: 69536516}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -216,7 +217,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69536508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 90}
+  m_LocalPosition: {x: -1.1, y: 3, z: 90}
   m_LocalScale: {x: 15, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -261,11 +262,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 69536508}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2380d344684ff624e929eae3261008f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 69536508}
+--- !u!114 &69536516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69536508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6040aa3dd038d084fa6a9b39d91e6071, type: 3}
-  m_NotificationBehavior: 0
+  m_Actions: {fileID: -944628639613478452, guid: 96bde57561abb15419113c74699bc201,
+    type: 3}
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -276,7 +291,27 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 69536515}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 41acc9d1-7c35-4a9b-b8af-42366d6b736c
+    m_ActionName: Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/Keyboard/upArrow,/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ce7c25ca-728b-4213-8f9c-0abb666970b1
+    m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/Keyboard/w,/Keyboard/s]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -518,6 +553,7 @@ GameObject:
   - component: {fileID: 329544273}
   - component: {fileID: 329544272}
   - component: {fileID: 329544271}
+  - component: {fileID: 329544278}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -567,8 +603,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 6040aa3dd038d084fa6a9b39d91e6071, type: 3}
-  m_NotificationBehavior: 0
+  m_Actions: {fileID: -944628639613478452, guid: 96bde57561abb15419113c74699bc201,
+    type: 3}
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -579,10 +616,17 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents: [{m_PersistentCalls: {m_Calls: []}, m_ActionId: 41acc9d1-7c35-4a9b-b8af-42366d6b736c,
+      m_ActionName: 'Player1/Movement[/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/Keyboard/upArrow,/Keyboard/downArrow]'},
+    {m_PersistentCalls: {m_Calls: [{m_Target: {fileID: 329544278}, m_TargetAssemblyTypeName: 'PlayerController,
+              Assembly-CSharp', m_MethodName: OnMove, m_Mode: 0, m_Arguments: {m_ObjectArgument: {
+                fileID: 0}, m_ObjectArgumentAssemblyTypeName: 'UnityEngine.Object,
+                UnityEngine', m_IntArgument: 0, m_FloatArgument: 0, m_StringArgument: '',
+              m_BoolArgument: 0}, m_CallState: 2}]}, m_ActionId: ce7c25ca-728b-4213-8f9c-0abb666970b1,
+      m_ActionName: 'Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/Keyboard/w,/Keyboard/s]'}]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player1
+  m_DefaultActionMap: Player2
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!65 &329544274
@@ -662,6 +706,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &329544278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329544270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2380d344684ff624e929eae3261008f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 329544270}
 --- !u!1 &367645393
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +857,7 @@ GameObject:
   - component: {fileID: 669654757}
   - component: {fileID: 669654756}
   - component: {fileID: 669654755}
+  - component: {fileID: 669654758}
   m_Layer: 0
   m_Name: TopWall
   m_TagString: Wall
@@ -884,6 +942,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669654753}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &669654758
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 669654753}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3
 --- !u!1 &684245314
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +970,7 @@ GameObject:
   - component: {fileID: 684245318}
   - component: {fileID: 684245317}
   - component: {fileID: 684245316}
+  - component: {fileID: 684245319}
   m_Layer: 0
   m_Name: PlayerTwoWall
   m_TagString: PlayerTwoWall
@@ -980,6 +1055,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684245314}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &684245319
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684245314}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1724,6 @@ GameObject:
   - component: {fileID: 1672590246}
   - component: {fileID: 1672590245}
   - component: {fileID: 1672590244}
-  - component: {fileID: 1672590247}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1666,7 +1756,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72e4c372d5726c94493c60ff38b89e00, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.393
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1764,15 +1854,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!170 &1672590247
-AudioDistortionFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672590243}
-  m_Enabled: 1
-  m_DistortionLevel: 0
 --- !u!1 &1779793688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +2028,7 @@ GameObject:
   - component: {fileID: 2009995397}
   - component: {fileID: 2009995396}
   - component: {fileID: 2009995395}
+  - component: {fileID: 2009995398}
   m_Layer: 0
   m_Name: BottomWall
   m_TagString: Wall
@@ -2031,6 +2113,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009995393}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2009995398
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009995393}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3
 --- !u!1 &2061120272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2288,7 @@ GameObject:
   - component: {fileID: 2138567496}
   - component: {fileID: 2138567495}
   - component: {fileID: 2138567494}
+  - component: {fileID: 2138567497}
   m_Layer: 0
   m_Name: PlayerOneWall
   m_TagString: PlayerOneWall
@@ -2274,3 +2373,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138567492}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2138567497
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138567492}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 3

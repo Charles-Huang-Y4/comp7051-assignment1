@@ -75,9 +75,9 @@ public class GameManager : MonoBehaviour {
             PlayerTwoText(_playerTwoScore);
             ResetGame();
             if (isAI) {
-                paddle2.GetComponent<Paddle>().OnDisable();
+                paddle2.GetComponent<PlayerController>().OnDisable();
             } else {
-                paddle2.GetComponent<Paddle>().OnEnable();
+                paddle2.GetComponent<PlayerController>().OnEnable();
             }
         }
 
@@ -93,9 +93,7 @@ public class GameManager : MonoBehaviour {
                 speed /= 1.5f;
             }
         }
-    }
 
-    void FixedUpdate() {
         if (canDisco) {
             Disco();
         }
@@ -136,7 +134,7 @@ public class GameManager : MonoBehaviour {
 
     // Disco!!!
     private void Disco() {
-        int chance = 25;
+        int chance = 50;
 
         if (Random.Range(0, chance) == 0) {
             lightComponent.color = GetRandomColor();
