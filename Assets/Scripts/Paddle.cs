@@ -44,4 +44,5 @@ public class Paddle : MonoBehaviour
             AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
         }
     }
+
 }

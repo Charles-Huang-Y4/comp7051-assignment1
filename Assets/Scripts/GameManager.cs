@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour {
             isAI = !isAI;
             PlayerTwoText(_playerTwoScore);
             ResetGame();
+            if (isAI) {
+                paddle2.GetComponent<PlayerController>().OnDisable();
+            } else {
+                paddle2.GetComponent<PlayerController>().OnEnable();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.D)) {
@@ -89,7 +94,9 @@ public class GameManager : MonoBehaviour {
                 speed /= 1.5f;
             }
         }
+    }
 
+    void FixedUpdate() {
         if (canDisco) {
             Disco();
         }
@@ -130,10 +137,7 @@ public class GameManager : MonoBehaviour {
 
     // Disco!!!
     private void Disco() {
-        int chance = 50;
-        int rotationSpeed = 3500;
-        int paddleExpansion = 15;
-        Vector3 tempPaddleScale = originalPaddleScale;
+        int chance = 25;
 
         if (Random.Range(0, chance) == 0) {
             lightComponent.color = GetRandomColor();
@@ -150,12 +154,9 @@ public class GameManager : MonoBehaviour {
         }
 
         foreach (GameObject obj in paddleList) {      
-            tempPaddleScale.x = Random.Range(originalPaddleScale.x, originalPaddleScale.x + paddleExpansion);
             if (Random.Range(0, chance) == 0) {
                 obj.GetComponent<Renderer>().material.color = GetRandomColor();
             }
-/*            obj.transform.Rotate(GetRandomVector3(), rotationSpeed * Time.deltaTime);
-            obj.transform.localScale = tempPaddleScale;*/
         }
 
         // For some reason GetRandomColor() doesn't work but this does...

@@ -3,32 +3,38 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     [SerializeField] private GameObject _player;
-    private InputActions _input;
+    private InputActions _inputActions;
     private InputAction _movement;
     private Rigidbody _rigidbody;
     private Vector2 _currentMove;
 
     private void Awake() {
-        _input = new InputActions();
+        _inputActions = new InputActions();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnEnable() {
+    public void OnEnable() {
+        this.enabled = true;
+
         // Get reference to player's controller movement and enable the respective actions
         if (_player.name.Equals("Player1")) {
-            _movement = _input.Player1.Movement;
+            _movement = _inputActions.Player1.Movement;
         } else if (_player.name.Equals("Player2")) {
-            _movement = _input.Player2.Movement;
+            _movement = _inputActions.Player2.Movement;
         }
-
-        _movement.Enable();
+        
+        if (_movement != null)
+            _movement.Enable();
     }
 
-    private void OnDisable() {
+    public void OnDisable() {
+        this.enabled = false;
+
         // Disable player movement via controller input
-        if (_movement != null) {
+        Debug.Log("disable inputactions");
+
+        if (_movement != null)
             _movement.Disable();
-        }
     }
 
     public void OnMove(InputAction.CallbackContext context) {
