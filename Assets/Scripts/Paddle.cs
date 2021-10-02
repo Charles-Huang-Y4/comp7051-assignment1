@@ -7,26 +7,30 @@ public class Paddle : MonoBehaviour
 {
     public bool isPlayerOne;
     public Ball ball;
+    public PlayerKeyboardInput input;
 
     private float AISpeed;
     private Rigidbody rigidbody;
-    private KeyCode up;
-    private KeyCode down;
     private float minRand = 0.6f;
     private float maxRand = 1f;
     private Vector3 startPos;
+    private InputAction movement;
+
+    private void Awake() {
+        input = new PlayerKeyboardInput();
+    }
 
     private void Start() {
         AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
         rigidbody = GetComponent<Rigidbody>();
-        if (isPlayerOne) {
-            up = KeyCode.UpArrow;
-            down = KeyCode.DownArrow;
-        } else {
-            up = KeyCode.W;
-            down = KeyCode.S;
-        }
+
         startPos = transform.position;
+
+        if (isPlayerOne) {
+            movement = input.Player1.ArrowKeys;
+        } else {
+            movement = input.Player2.WASD;
+        }
     }
 
     public void Reset() {
@@ -45,20 +49,7 @@ public class Paddle : MonoBehaviour
             return;
         }
 
-        // Not Paddle AI
-        if (Input.GetKeyDown(up)) {
-            rigidbody.velocity = Vector3.left * GameManager.Instance.speed;
-        }
-        if (Input.GetKeyUp(up)) {
-            rigidbody.velocity = Vector3.zero;
-        }
-
-        if (Input.GetKeyDown(down)) {
-            rigidbody.velocity = Vector3.right * GameManager.Instance.speed;
-        }
-        if (Input.GetKeyUp(down)) {
-            rigidbody.velocity = Vector3.zero;
-        }
+        rigidbody.velocity = new Vector3(movement.ReadValue<Vector2>().x, movement.ReadValue<Vector2>().y, 0) * GameManager.Instance.speed; ;
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -70,5 +61,13 @@ public class Paddle : MonoBehaviour
         if (collision.collider.tag == "Wall" || collision.collider.tag == "Ball") {
             AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
         }
+    }
+
+    private void OnEnable() {
+        input.Enable();
+    }
+
+    private void OnDisable() {
+        input.Disable();
     }
 }
