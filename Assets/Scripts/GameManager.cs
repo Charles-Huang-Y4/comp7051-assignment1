@@ -94,9 +94,7 @@ public class GameManager : MonoBehaviour {
                 speed /= 1.5f;
             }
         }
-    }
 
-    void FixedUpdate() {
         if (canDisco) {
             Disco();
         }
@@ -137,7 +135,7 @@ public class GameManager : MonoBehaviour {
 
     // Disco!!!
     private void Disco() {
-        int chance = 25;
+        int chance = 50;
 
         if (Random.Range(0, chance) == 0) {
             lightComponent.color = GetRandomColor();

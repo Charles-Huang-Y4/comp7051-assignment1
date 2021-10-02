@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69536508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 90}
+  m_LocalPosition: {x: -1.1, y: 3, z: 90}
   m_LocalScale: {x: 15, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1492,7 +1492,6 @@ GameObject:
   - component: {fileID: 1672590246}
   - component: {fileID: 1672590245}
   - component: {fileID: 1672590244}
-  - component: {fileID: 1672590247}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1525,7 +1524,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72e4c372d5726c94493c60ff38b89e00, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.393
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1623,15 +1622,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!170 &1672590247
-AudioDistortionFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672590243}
-  m_Enabled: 1
-  m_DistortionLevel: 0
 --- !u!1 &1779793688
 GameObject:
   m_ObjectHideFlags: 0
