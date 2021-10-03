@@ -6,12 +6,11 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance { get; private set; }
     public static bool isAI = false;
     public static bool canDisco = false;
-    public Ball ball;
-    public Cube cube;
-    private GameObject paddle1;
-    private GameObject paddle2;
     public float speed = 100;
     public int pointsToWin = 5;
+
+    private Cube cube;
+    private GameObject paddle2;
     
     private int _playerOneScore;
     private int _playerTwoScore;
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour {
         }
         DontDestroyOnLoad(gameObject);
 
-        paddle1 = GameObject.Find("Player1");
         paddle2 = GameObject.Find("Player2");
         playerOneGUI = GameObject.FindGameObjectWithTag("PlayerOneScore").GetComponent<TextMeshProUGUI>();
         playerTwoGUI = GameObject.FindGameObjectWithTag("PlayerTwoScore").GetComponent<TextMeshProUGUI>();
@@ -64,37 +62,41 @@ public class GameManager : MonoBehaviour {
     }
 
     public void IncrementPlayerOneScore() {
-        playerOneGUI.text = (++_playerOneScore).ToString();
+        if (++_playerOneScore == pointsToWin) {
+            PlayerOneWins(true);
+        } else {
+            playerOneGUI.text = (_playerOneScore).ToString();
+        }
     }
 
     public void IncrementPlayerTwoScore() {
-        PlayerTwoText(++_playerTwoScore);
-    }
-
-    public bool CanDisco() {
-        return canDisco;
-    }
-
-    // Changes the text on Player 2's side (adds 'AI' before the score if it is on)
-    private void PlayerTwoText(int score) {
-        if (isAI) {
-            playerTwoGUI.text = "AI: " + score.ToString();
+        if (++_playerTwoScore == pointsToWin) {
+            PlayerOneWins(false);
         } else {
-            playerTwoGUI.text = score.ToString();
+            PlayerTwoText(_playerTwoScore);
+        }
+    }
+
+    private void PlayerOneWins(bool b) {
+        if (b) {
+            Debug.Log("Player One Wins!");
+        } else {
+            if (isAI) {
+                Debug.Log("AI Wins!");
+            } else {
+                Debug.Log("Player Two Wins!");
+            }
         }
     }
 
     // Disco!!!
     private void Disco() {
+        int rotationalSpeed = 500000;
         lightComponent = GameObject.FindGameObjectWithTag("Light").GetComponent<Light>();
         cube = GameObject.FindGameObjectWithTag("Cube").GetComponent<Cube>();
-        int xRot = Random.Range(-1, 1);
-        int yRot = Random.Range(-1, 1);
-        int zRot = Random.Range(-1, 1);
-        cube.transform.Rotate(new Vector3(xRot, yRot, zRot), 5000000 * Time.deltaTime);
+        cube.transform.Rotate(GetRandomVector3(), rotationalSpeed * Time.deltaTime);
 
         if (Random.Range(0, 50) == 0) {
-
             lightComponent.color = GetRandomColor();
             cube.ChangeColor(GetRandomColor());
         }
@@ -111,6 +113,14 @@ public class GameManager : MonoBehaviour {
         playerTwoGUI.color = Color.white;
     }
 
+    // Changes the text on Player 2's side (adds 'AI' before the score if it is on)
+    private void PlayerTwoText(int score) {
+        if (isAI) {
+            playerTwoGUI.text = "AI: " + score.ToString();
+        } else {
+            playerTwoGUI.text = score.ToString();
+        }
+    }
     private Color GetRandomColor() {
         Color color = new Color();
         color.r = Random.Range(0f, 1f);
