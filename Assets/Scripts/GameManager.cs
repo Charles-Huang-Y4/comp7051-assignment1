@@ -7,12 +7,15 @@ public class GameManager : MonoBehaviour {
     public static bool isAI = false;
     public static bool canDisco = false;
     public float speed = 100;
-    public int pointsToWin = 5;
+    public int pointsToWin = 5; 
 
     private Cube cube;
     private GameObject paddle2;
-    
-    private int _playerOneScore;
+    private GameObject winnerText;
+    private GameObject tryAgainButton;
+    private GameObject ball;
+
+    private int _playerOneScore; 
     private int _playerTwoScore;
     private TextMeshProUGUI playerOneGUI;
     private TextMeshProUGUI playerTwoGUI;
@@ -62,29 +65,37 @@ public class GameManager : MonoBehaviour {
     }
 
     public void IncrementPlayerOneScore() {
-        if (++_playerOneScore == pointsToWin) {
+        ++_playerOneScore;
+        playerOneGUI.text = (_playerOneScore).ToString();
+        if (_playerOneScore == pointsToWin) {
             PlayerOneWins(true);
-        } else {
-            playerOneGUI.text = (_playerOneScore).ToString();
         }
     }
 
     public void IncrementPlayerTwoScore() {
-        if (++_playerTwoScore == pointsToWin) {
+        ++_playerTwoScore;
+        PlayerTwoText(_playerTwoScore);
+        if (_playerTwoScore == pointsToWin) {
             PlayerOneWins(false);
-        } else {
-            PlayerTwoText(_playerTwoScore);
         }
     }
 
     private void PlayerOneWins(bool b) {
+        winnerText = GameObject.Find("Winner");
+        //tryAgainButton = GameObject.Find("TryAgain");
+        //tryAgainButton.SetActive(true);
+        Debug.Log("STFU and reset");
         if (b) {
             Debug.Log("Player One Wins!");
+            winnerText.GetComponent<TextMeshProUGUI>().text = "Player One Wins!!!";
+            
         } else {
             if (isAI) {
                 Debug.Log("AI Wins!");
+                winnerText.GetComponent<TextMeshProUGUI>().text = "Computer Wins!!!";
             } else {
                 Debug.Log("Player Two Wins!");
+                winnerText.GetComponent<TextMeshProUGUI>().text = "Player Two Wins!!!";
             }
         }
     }
@@ -146,5 +157,15 @@ public class GameManager : MonoBehaviour {
         if(pointsToWin < 0) {
             pointsToWin = 0;
         }
+    }
+
+    public int getPlayerOneScore()
+    {
+        return _playerOneScore;
+    }
+
+    public int getPlayerTwoScore()
+    {
+        return _playerTwoScore;
     }
 }

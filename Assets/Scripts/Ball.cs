@@ -21,8 +21,17 @@ public class Ball : MonoBehaviour
 
         if (collision.collider.tag == "PlayerOneWall" || collision.collider.tag == "PlayerTwoWall") {
             transform.position = startPos;
-            Yeet();
+            if (GameManager.Instance.getPlayerOneScore() > 4 || GameManager.Instance.getPlayerTwoScore() > 4) 
+            {
+                Reset();
+            }
+            else
+            {
+                Yeet();
+            }
+            
         }
+        
     }
 
     // Yeets the ball somewhere when the game starts
