@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,21 +7,21 @@ public class Paddle : MonoBehaviour
     public Ball ball;
 
     private float AISpeed;
-    private Rigidbody rigidbody;
+    private Rigidbody _rigidbody;
     private float minRand = 0.6f;
     private float maxRand = 1f;
     private Vector3 startPos;
 
     private void Start() {
         AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
 
         startPos = transform.position;
     }
 
     public void Reset() {
         transform.position = startPos;
-        rigidbody.velocity = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     void Update() {     
@@ -32,9 +30,9 @@ public class Paddle : MonoBehaviour
             GetComponent<PlayerController>().OnDisable();
 
             if (ball.transform.position.x > transform.position.x) {
-                rigidbody.velocity = Vector3.right * AISpeed;
+                _rigidbody.velocity = Vector3.right * AISpeed;
             } else {
-                rigidbody.velocity = Vector3.left * AISpeed;
+                _rigidbody.velocity = Vector3.left * AISpeed;
             }
         }
     }

@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     void Awake() {
         if (Instance == null) {
             Instance = this;
-        } else if (Instance = this) {
+        } else if (Instance == this) {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
@@ -85,6 +85,19 @@ public class GameManager : MonoBehaviour {
     private void PlayerOneWins(bool b) {
         winnerText = GameObject.Find("Winner");
         tryAgainButton.SetActive(true);
+
+        // Disable paddle movement when "try again" screen is visible
+        GameObject paddle1 = GameObject.Find("Player1");
+
+        if (paddle1 != null) {
+            paddle1.GetComponent<PlayerController>().OnDisable();
+        }
+
+        if (paddle2 != null) {
+            paddle2.GetComponent<PlayerController>().OnDisable();
+        }
+
+        // Set winner text
         if (b) {
             winnerText.GetComponent<TextMeshProUGUI>().text = "Player One Wins!!!";    
         } else {
@@ -165,9 +178,16 @@ public class GameManager : MonoBehaviour {
         return _playerTwoScore;
     }
 
+    public void setPlayerOneScore(int newScore) {
+        _playerOneScore = newScore;
+    }
+
+    public void setPlayerTwoScore(int newScore) {
+        _playerTwoScore = newScore;
+    }
+
     public void DeleteAllPaddles()
     {
-        //Debug.Log("Die Paddle Two");
         Destroy(paddle2);
     }
 }
