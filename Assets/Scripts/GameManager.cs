@@ -178,6 +178,14 @@ public class GameManager : MonoBehaviour {
         return _playerTwoScore;
     }
 
+    public void setPlayerOneScore(int newScore) {
+        _playerOneScore = newScore;
+    }
+
+    public void setPlayerTwoScore(int newScore) {
+        _playerTwoScore = newScore;
+    }
+
     public void DeleteAllPaddles()
     {
         Destroy(paddle2);

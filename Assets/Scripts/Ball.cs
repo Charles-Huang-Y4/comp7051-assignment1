@@ -4,7 +4,7 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private Vector3 startPos;
-    private bool isStart;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -23,8 +23,7 @@ public class Ball : MonoBehaviour
             transform.position = startPos;
             if (GameManager.Instance.getPlayerOneScore() > 4 || GameManager.Instance.getPlayerTwoScore() > 4) 
             {
-
-                Reset();
+                BallReset();
             }
             else
             {
@@ -55,9 +54,14 @@ public class Ball : MonoBehaviour
         _rigidbody.velocity = new Vector3(x * GameManager.Instance.speed, 0, y * GameManager.Instance.speed);
     }
 
-    public void Reset() {
+    private void BallReset() {
+        // The game was one, reset;
+
         transform.position = startPos;
         _rigidbody.velocity = Vector3.zero;
+
+        GameManager.Instance.setPlayerOneScore(0);
+        GameManager.Instance.setPlayerTwoScore(0);
     }
 
     public Vector3 GetPosition() {
