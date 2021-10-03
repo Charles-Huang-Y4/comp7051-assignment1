@@ -12,13 +12,7 @@ public class LoadLevel : MonoBehaviour
     {
         GameManager.isAI = vsAI;
         GameManager.canDisco = false;
-        /*        if(theLevel == "GameAI"){
-                    GameManager.isAI = true;
-                } else if(theLevel == "Game"){
-                    GameManager.isAI = false;
-                } else {
-                    GameManager.canDisco = false;
-                }*/
+
         SceneManager.LoadScene(theLevel);
     }
 

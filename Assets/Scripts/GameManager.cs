@@ -87,9 +87,17 @@ public class GameManager : MonoBehaviour {
         tryAgainButton.SetActive(true);
 
         // Disable paddle movement when "try again" screen is visible
-        GameObject.Find("Player1").GetComponent<PlayerController>().OnDisable();
-        paddle2.GetComponent<PlayerController>().OnDisable();
+        GameObject paddle1 = GameObject.Find("Player1");
 
+        if (paddle1 != null) {
+            paddle1.GetComponent<PlayerController>().OnDisable();
+        }
+
+        if (paddle2 != null) {
+            paddle2.GetComponent<PlayerController>().OnDisable();
+        }
+
+        // Set winner text
         if (b) {
             winnerText.GetComponent<TextMeshProUGUI>().text = "Player One Wins!!!";    
         } else {
@@ -172,7 +180,6 @@ public class GameManager : MonoBehaviour {
 
     public void DeleteAllPaddles()
     {
-        //Debug.Log("Die Paddle Two");
         Destroy(paddle2);
     }
 }
