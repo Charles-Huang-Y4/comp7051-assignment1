@@ -169,4 +169,10 @@ public class GameManager : MonoBehaviour {
     {
         return _playerTwoScore;
     }
+
+    public void DeleteAllPaddles()
+    {
+        //Debug.Log("Die Paddle Two");
+        Destroy(paddle2);
+    }
 }
