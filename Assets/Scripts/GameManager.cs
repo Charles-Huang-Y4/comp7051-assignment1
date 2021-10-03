@@ -21,12 +21,15 @@ public class GameManager : MonoBehaviour {
     private Light lightComponent;
 
     void Awake() {
-        if (Instance == null) {
-            Instance = this;
-        } else if (Instance == this) {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
+        Instance = this;
+        //if (Instance == null) {
+        //    Debug.Log("Create Game manager");
+        //    Instance = this;
+        //} else if (Instance == this) {
+        //    Debug.Log("Destroy copy of Game Manager");
+        //    Destroy(gameObject);
+        //}
+        //DontDestroyOnLoad(gameObject);
 
         paddle2 = GameObject.Find("Player2");
         playerOneGUI = GameObject.FindGameObjectWithTag("PlayerOneScore").GetComponent<TextMeshProUGUI>();
