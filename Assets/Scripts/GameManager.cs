@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour {
     private GameObject paddle2;
     private GameObject winnerText;
     private GameObject tryAgainButton;
-    private GameObject ball;
 
     private int _playerOneScore; 
     private int _playerTwoScore;
@@ -32,6 +31,9 @@ public class GameManager : MonoBehaviour {
         paddle2 = GameObject.Find("Player2");
         playerOneGUI = GameObject.FindGameObjectWithTag("PlayerOneScore").GetComponent<TextMeshProUGUI>();
         playerTwoGUI = GameObject.FindGameObjectWithTag("PlayerTwoScore").GetComponent<TextMeshProUGUI>();
+        tryAgainButton = GameObject.Find("TryAgain");
+
+        tryAgainButton.SetActive(false);
 
         PlayerTwoText(_playerTwoScore);
     }
@@ -82,19 +84,13 @@ public class GameManager : MonoBehaviour {
 
     private void PlayerOneWins(bool b) {
         winnerText = GameObject.Find("Winner");
-        //tryAgainButton = GameObject.Find("TryAgain");
-        //tryAgainButton.SetActive(true);
-        Debug.Log("STFU and reset");
+        tryAgainButton.SetActive(true);
         if (b) {
-            Debug.Log("Player One Wins!");
-            winnerText.GetComponent<TextMeshProUGUI>().text = "Player One Wins!!!";
-            
+            winnerText.GetComponent<TextMeshProUGUI>().text = "Player One Wins!!!";    
         } else {
             if (isAI) {
-                Debug.Log("AI Wins!");
                 winnerText.GetComponent<TextMeshProUGUI>().text = "Computer Wins!!!";
             } else {
-                Debug.Log("Player Two Wins!");
                 winnerText.GetComponent<TextMeshProUGUI>().text = "Player Two Wins!!!";
             }
         }

@@ -23,6 +23,7 @@ public class Ball : MonoBehaviour
             transform.position = startPos;
             if (GameManager.Instance.getPlayerOneScore() > 4 || GameManager.Instance.getPlayerTwoScore() > 4) 
             {
+
                 Reset();
             }
             else

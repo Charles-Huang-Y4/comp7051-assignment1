@@ -27,7 +27,7 @@ public class ConsoleController : MonoBehaviour
             if (!input.Equals(""))
             {
                 outputext.text += ">>" + input + "\n";
-                string output = Console.Input(input);
+                /*string output = Console.Input(input);
                 if (output != null)
                 {
                     // clean console
@@ -36,7 +36,7 @@ public class ConsoleController : MonoBehaviour
                     else
                         outputext.text += output + "\n";
                 }
-                inputField.text = "";
+                inputField.text = "";*/
             }
 
         }
@@ -44,13 +44,13 @@ public class ConsoleController : MonoBehaviour
         //go back to last command 
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            inputField.text = Console.Last();
+            //inputField.text = Console.Last();
         }
 
         // go forward to next command
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            inputField.text = Console.Next();
+            //inputField.text = Console.Next();
         }
             
         inputField.ActivateInputField();
