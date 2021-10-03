@@ -191,7 +191,7 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""ToggleDebug"",
+                    ""name"": ""OpenDebug"",
                     ""type"": ""Button"",
                     ""id"": ""5358e51f-3a20-433e-8041-a374dda41b9d"",
                     ""expectedControlType"": ""Button"",
@@ -202,6 +202,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""name"": ""Enter"",
                     ""type"": ""Button"",
                     ""id"": ""29f95a78-34ae-4f26-b1d8-738bff14e650"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CloseDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""961fc532-f96f-4c96-afb6-359e6cf1523f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -222,11 +230,11 @@ public class @InputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""be973836-52dc-498b-bb5b-26c5a2344f14"",
-                    ""path"": ""<Keyboard>/backquote"",
+                    ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ToggleDebug"",
+                    ""action"": ""OpenDebug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -238,6 +246,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Enter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6e407fd-e390-4f28-a27e-0bcfd523c60d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseDebug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -255,8 +274,9 @@ public class @InputActions : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Quit = m_UI.FindAction("Quit", throwIfNotFound: true);
-        m_UI_ToggleDebug = m_UI.FindAction("ToggleDebug", throwIfNotFound: true);
+        m_UI_OpenDebug = m_UI.FindAction("OpenDebug", throwIfNotFound: true);
         m_UI_Enter = m_UI.FindAction("Enter", throwIfNotFound: true);
+        m_UI_CloseDebug = m_UI.FindAction("CloseDebug", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -373,15 +393,17 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Quit;
-    private readonly InputAction m_UI_ToggleDebug;
+    private readonly InputAction m_UI_OpenDebug;
     private readonly InputAction m_UI_Enter;
+    private readonly InputAction m_UI_CloseDebug;
     public struct UIActions
     {
         private @InputActions m_Wrapper;
         public UIActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Quit => m_Wrapper.m_UI_Quit;
-        public InputAction @ToggleDebug => m_Wrapper.m_UI_ToggleDebug;
+        public InputAction @OpenDebug => m_Wrapper.m_UI_OpenDebug;
         public InputAction @Enter => m_Wrapper.m_UI_Enter;
+        public InputAction @CloseDebug => m_Wrapper.m_UI_CloseDebug;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -394,12 +416,15 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Quit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
-                @ToggleDebug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
-                @ToggleDebug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
-                @ToggleDebug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleDebug;
+                @OpenDebug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenDebug;
+                @OpenDebug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenDebug;
+                @OpenDebug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOpenDebug;
                 @Enter.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEnter;
                 @Enter.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEnter;
                 @Enter.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEnter;
+                @CloseDebug.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCloseDebug;
+                @CloseDebug.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCloseDebug;
+                @CloseDebug.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCloseDebug;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -407,12 +432,15 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
-                @ToggleDebug.started += instance.OnToggleDebug;
-                @ToggleDebug.performed += instance.OnToggleDebug;
-                @ToggleDebug.canceled += instance.OnToggleDebug;
+                @OpenDebug.started += instance.OnOpenDebug;
+                @OpenDebug.performed += instance.OnOpenDebug;
+                @OpenDebug.canceled += instance.OnOpenDebug;
                 @Enter.started += instance.OnEnter;
                 @Enter.performed += instance.OnEnter;
                 @Enter.canceled += instance.OnEnter;
+                @CloseDebug.started += instance.OnCloseDebug;
+                @CloseDebug.performed += instance.OnCloseDebug;
+                @CloseDebug.canceled += instance.OnCloseDebug;
             }
         }
     }
@@ -428,7 +456,8 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnQuit(InputAction.CallbackContext context);
-        void OnToggleDebug(InputAction.CallbackContext context);
+        void OnOpenDebug(InputAction.CallbackContext context);
         void OnEnter(InputAction.CallbackContext context);
+        void OnCloseDebug(InputAction.CallbackContext context);
     }
 }

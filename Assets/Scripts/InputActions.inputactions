@@ -178,7 +178,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "ToggleDebug",
+                    "name": "OpenDebug",
                     "type": "Button",
                     "id": "5358e51f-3a20-433e-8041-a374dda41b9d",
                     "expectedControlType": "Button",
@@ -189,6 +189,14 @@
                     "name": "Enter",
                     "type": "Button",
                     "id": "29f95a78-34ae-4f26-b1d8-738bff14e650",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CloseDebug",
+                    "type": "Button",
+                    "id": "961fc532-f96f-4c96-afb6-359e6cf1523f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -209,11 +217,11 @@
                 {
                     "name": "",
                     "id": "be973836-52dc-498b-bb5b-26c5a2344f14",
-                    "path": "<Keyboard>/backquote",
+                    "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ToggleDebug",
+                    "action": "OpenDebug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -225,6 +233,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Enter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6e407fd-e390-4f28-a27e-0bcfd523c60d",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseDebug",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

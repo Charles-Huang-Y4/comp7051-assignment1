@@ -8,7 +8,8 @@ public class DebugController : MonoBehaviour
     bool showConsole;
     string input;
     private InputActions _UIActions;
-    private InputAction _toggleDebug;
+    private InputAction _openDebug;
+    private InputAction _closeDebug;
     private InputAction _enterDebug;
 
     public static DebugCommand KILL_PADDLES;
@@ -41,17 +42,25 @@ public class DebugController : MonoBehaviour
     public void OnEnable()
     {
         this.enabled = true;
-        _toggleDebug = _UIActions.UI.ToggleDebug;
+        _openDebug = _UIActions.UI.OpenDebug;
+        _closeDebug = _UIActions.UI.CloseDebug;
         _enterDebug = _UIActions.UI.Enter;
-        _UIActions.UI.ToggleDebug.performed += OnToggleDebug;
+        _UIActions.UI.OpenDebug.performed += OnOpenDebug;
+        _UIActions.UI.CloseDebug.performed += OnCloseDebug;
         _UIActions.UI.Enter.performed += OnReturn;
-        _toggleDebug.Enable();
+        _openDebug.Enable();
+        _closeDebug.Enable();
         _enterDebug.Enable();
     }
 
-    public void OnToggleDebug(InputAction.CallbackContext obj)
+    public void OnOpenDebug(InputAction.CallbackContext obj)
     {
-        showConsole = !showConsole;
+        showConsole = true;
+    }
+
+    public void OnCloseDebug(InputAction.CallbackContext obj)
+    {
+        showConsole = false;
     }
 
     public void OnReturn(InputAction.CallbackContext obj)
@@ -65,9 +74,11 @@ public class DebugController : MonoBehaviour
 
     public void OnDisable()
     {
-        _toggleDebug.Disable();
+        _openDebug.Disable();
+        _closeDebug.Disable();
         _enterDebug.Disable();
-        _UIActions.UI.ToggleDebug.Disable();
+        _UIActions.UI.OpenDebug.Disable();
+        _UIActions.UI.CloseDebug.Disable();
         _UIActions.UI.Enter.Disable();
     }
 
