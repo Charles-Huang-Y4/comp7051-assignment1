@@ -5,15 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
-    public bool vsAI;
+    [SerializeField]
+    private bool vsAI;
 
     public void LoadTheLevel (string theLevel)
     {
+        GameManager.isAI = vsAI;
+        GameManager.canDisco = false;
+        /*        if(theLevel == "GameAI"){
+                    GameManager.isAI = true;
+                } else if(theLevel == "Game"){
+                    GameManager.isAI = false;
+                } else {
+                    GameManager.canDisco = false;
+                }*/
         SceneManager.LoadScene(theLevel);
-        if (vsAI)
-        {
-            GameManager.isAI = true;
-        }
     }
 
     public void QuitGame()

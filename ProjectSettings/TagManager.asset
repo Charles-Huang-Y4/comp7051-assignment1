@@ -11,6 +11,7 @@ TagManager:
   - PlayerTwoScore
   - Light
   - Ball
+  - Cube
   layers:
   - Default
   - TransparentFX

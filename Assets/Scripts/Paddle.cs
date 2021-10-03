@@ -28,13 +28,14 @@ public class Paddle : MonoBehaviour
 
     void Update() {     
         // Paddle AI
-        if (GameManager.Instance.IsAI() && !isPlayerOne && ball.GetVelocity() != Vector3.zero) {
+        if (GameManager.isAI && !isPlayerOne && ball.GetVelocity() != Vector3.zero) {
+            GetComponent<PlayerController>().OnDisable();
+
             if (ball.transform.position.x > transform.position.x) {
                 rigidbody.velocity = Vector3.right * AISpeed;
             } else {
                 rigidbody.velocity = Vector3.left * AISpeed;
             }
-            return;
         }
     }
 
@@ -44,5 +45,4 @@ public class Paddle : MonoBehaviour
             AISpeed = Random.Range(minRand, maxRand) * GameManager.Instance.speed;
         }
     }
-
 }
