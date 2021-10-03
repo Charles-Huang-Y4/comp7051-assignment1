@@ -177,6 +177,33 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""bafcc2dd-c963-4d23-83ba-a94fb6c83f0a"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd5d9cfc-dcd3-4504-a4d8-64d5ab644663"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b19e23f1-05c9-454e-b74d-7096d7cb4162"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -187,6 +214,9 @@ public class @InputActions : IInputActionCollection, IDisposable
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Movement = m_Player2.FindAction("Movement", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Quit = m_UI.FindAction("Quit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -298,6 +328,39 @@ public class @InputActions : IInputActionCollection, IDisposable
         }
     }
     public Player2Actions @Player2 => new Player2Actions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Quit;
+    public struct UIActions
+    {
+        private @InputActions m_Wrapper;
+        public UIActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Quit => m_Wrapper.m_UI_Quit;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Quit.started -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnQuit;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IPlayer1Actions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -305,5 +368,9 @@ public class @InputActions : IInputActionCollection, IDisposable
     public interface IPlayer2Actions
     {
         void OnMovement(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

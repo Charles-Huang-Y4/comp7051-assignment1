@@ -311,6 +311,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ce7c25ca-728b-4213-8f9c-0abb666970b1
     m_ActionName: Player2/Movement[/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/Keyboard/w,/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1c7e7e15-6f43-43de-92a8-bc5b420d1eaf
+    m_ActionName: Player1/UI[/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd5d9cfc-dcd3-4504-a4d8-64d5ab644663
+    m_ActionName: UI/Quit[/DualShock4GamepadHID/start]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -1442,7 +1450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -984.9, y: -489}
+  m_AnchoredPosition: {x: -973.6, y: -489}
   m_SizeDelta: {x: 160.5, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &954352224
@@ -2421,6 +2429,8 @@ GameObject:
   - component: {fileID: 2061120276}
   - component: {fileID: 2061120275}
   - component: {fileID: 2061120274}
+  - component: {fileID: 2061120278}
+  - component: {fileID: 2061120279}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2555,6 +2565,48 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061120272}
   m_CullTransparentMesh: 1
+--- !u!114 &2061120278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061120272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 96bde57561abb15419113c74699bc201, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2061120279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061120272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f5230a9cf41f345959daad85329346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2138567492
 GameObject:
   m_ObjectHideFlags: 0
