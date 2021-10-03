@@ -4,6 +4,7 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private Vector3 startPos;
+    private int pointsToWin = GameManager.Instance.pointsToWin;
 
     void Start()
     {
@@ -21,7 +22,8 @@ public class Ball : MonoBehaviour
 
         if (collision.collider.tag == "PlayerOneWall" || collision.collider.tag == "PlayerTwoWall") {
             transform.position = startPos;
-            if (GameManager.Instance.getPlayerOneScore() > 4 || GameManager.Instance.getPlayerTwoScore() > 4) 
+            if (GameManager.Instance.getPlayerOneScore() == pointsToWin
+                || GameManager.Instance.getPlayerTwoScore() == pointsToWin) 
             {
                 BallReset();
             }
@@ -55,7 +57,7 @@ public class Ball : MonoBehaviour
     }
 
     private void BallReset() {
-        // The game was one, reset;
+        // The game was won, reset;
 
         transform.position = startPos;
         _rigidbody.velocity = Vector3.zero;
