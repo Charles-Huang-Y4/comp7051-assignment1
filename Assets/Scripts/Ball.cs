@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private Rigidbody _rigidbody;
     private Vector3 startPos;
     private bool isStart;
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         startPos = transform.position;
         Yeet();
     }
@@ -52,12 +52,12 @@ public class Ball : MonoBehaviour
             y = -1;
         }
 
-        rigidbody.velocity = new Vector3(x * GameManager.Instance.speed, 0, y * GameManager.Instance.speed);
+        _rigidbody.velocity = new Vector3(x * GameManager.Instance.speed, 0, y * GameManager.Instance.speed);
     }
 
     public void Reset() {
         transform.position = startPos;
-        rigidbody.velocity = Vector3.zero;
+        _rigidbody.velocity = Vector3.zero;
     }
 
     public Vector3 GetPosition() {
@@ -65,6 +65,6 @@ public class Ball : MonoBehaviour
     }
 
     public Vector3 GetVelocity() {
-        return rigidbody.velocity;
+        return _rigidbody.velocity;
     }
 }
