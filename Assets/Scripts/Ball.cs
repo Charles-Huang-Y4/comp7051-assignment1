@@ -9,13 +9,7 @@ public class Ball : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         startPos = transform.position;
-        isStart = true;
-    }
-
-    void Update() {
-        if (Input.GetKeyDown(KeyCode.F)) {
-            Launch();
-        }
+        Yeet();
     }
 
     private void OnCollisionEnter(Collision collision) {
@@ -27,11 +21,12 @@ public class Ball : MonoBehaviour
 
         if (collision.collider.tag == "PlayerOneWall" || collision.collider.tag == "PlayerTwoWall") {
             transform.position = startPos;
-            Launch();
+            Yeet();
         }
     }
 
-    private void Launch() {
+    // Yeets the ball somewhere when the game starts
+    private void Yeet() {
         float x;
         float y;
 

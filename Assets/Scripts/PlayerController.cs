@@ -30,9 +30,6 @@ public class PlayerController : MonoBehaviour {
     public void OnDisable() {
         this.enabled = false;
 
-        // Disable player movement via controller input
-        Debug.Log("disable inputactions");
-
         if (_movement != null)
             _movement.Disable();
     }
