@@ -7,6 +7,7 @@ public class DebugController : MonoBehaviour
 {
     bool showConsole;
     string input;
+
     private InputActions _UIActions;
     private InputAction _openDebug;
     private InputAction _closeDebug;
@@ -14,7 +15,6 @@ public class DebugController : MonoBehaviour
 
     public static DebugCommand KILL_PADDLES;
     public static DebugCommand BG_COLOR_RED;
-
     public List<object> commandList;
 
     void Awake()
@@ -53,15 +53,9 @@ public class DebugController : MonoBehaviour
         _enterDebug.Enable();
     }
 
-    public void OnOpenDebug(InputAction.CallbackContext obj)
-    {
-        showConsole = true;
-    }
+    public void OnOpenDebug(InputAction.CallbackContext obj) { showConsole = true; }
 
-    public void OnCloseDebug(InputAction.CallbackContext obj)
-    {
-        showConsole = false;
-    }
+    public void OnCloseDebug(InputAction.CallbackContext obj) { showConsole = false; }
 
     public void OnReturn(InputAction.CallbackContext obj)
     {

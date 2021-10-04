@@ -21,15 +21,8 @@ public class GameManager : MonoBehaviour {
     private Light lightComponent;
 
     void Awake() {
+
         Instance = this;
-        //if (Instance == null) {
-        //    Debug.Log("Create Game manager");
-        //    Instance = this;
-        //} else if (Instance == this) {
-        //    Debug.Log("Destroy copy of Game Manager");
-        //    Destroy(gameObject);
-        //}
-        //DontDestroyOnLoad(gameObject);
 
         paddle2 = GameObject.Find("Player2");
         playerOneGUI = GameObject.FindGameObjectWithTag("PlayerOneScore").GetComponent<TextMeshProUGUI>();
@@ -168,26 +161,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public int getPlayerOneScore()
-    {
-        return _playerOneScore;
-    }
+    public int getPlayerOneScore() { return _playerOneScore; }
 
-    public int getPlayerTwoScore()
-    {
-        return _playerTwoScore;
-    }
+    public int getPlayerTwoScore() { return _playerTwoScore; }
 
-    public void setPlayerOneScore(int newScore) {
-        _playerOneScore = newScore;
-    }
+    public void setPlayerOneScore(int newScore) { _playerOneScore = newScore; }
 
-    public void setPlayerTwoScore(int newScore) {
-        _playerTwoScore = newScore;
-    }
+    public void setPlayerTwoScore(int newScore) { _playerTwoScore = newScore; }
 
-    public void DeleteAllPaddles()
-    {
-        Destroy(paddle2);
-    }
+    public void DeleteAllPaddles() { Destroy(paddle2); }
 }
