@@ -29,8 +29,8 @@ The first player to reach 5 points wins.
 Once the command console is open, the player must click on the box that appears on the top of the screen in order to type commands.
 
 * `C` - Open a cheat console at the top of the screen
-* Enter - Apply the command
-* `` ` `` (Backtick) - Close the cheat console
+* `Enter` - Apply the command
+* `ESC (Escape)` - Close the cheat console
 
 ### List of Console Commands
 
