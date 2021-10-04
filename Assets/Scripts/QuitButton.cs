@@ -8,11 +8,7 @@ public class QuitButton : MonoBehaviour
     private InputActions _controls;
     private InputAction ui;
     // Start is called before the first frame update
-    void Awake()
-    {
-        _controls = new InputActions();
-
-    }
+    void Awake(){ _controls = new InputActions(); }
 
     public void OnEnable()
     {

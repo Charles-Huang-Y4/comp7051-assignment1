@@ -4,12 +4,13 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody _rigidbody;
     private Vector3 startPos;
-    private int pointsToWin = GameManager.Instance.pointsToWin;
+    private int pointsToWin;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         startPos = transform.position;
+        pointsToWin = GameManager.Instance.pointsToWin;
         Yeet();
     }
 

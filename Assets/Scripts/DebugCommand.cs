@@ -28,8 +28,5 @@ public class DebugCommand : DebugCommandBase
         this.command = command;
     }
 
-    public void Invoke()
-    {
-        command.Invoke();
-    }
+    public void Invoke() { command.Invoke(); }
 }
